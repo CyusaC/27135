@@ -1,13 +1,11 @@
-package q3;
+package _27135.q3;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-
         System.out.println("=== 27135 TAX RECORD INPUT SYSTEM ===");
 
         try {
@@ -80,44 +78,31 @@ public class Main {
             System.out.print("Receipt Number: ");
             String receiptNo = sc.nextLine();
 
-
-
             TaxRecord record = new TaxRecord(
-                    id,
-                    LocalDate.now(),
-                    LocalDate.now(),
-                    authorityName,
-                    region,
-                    email,
-                    categoryName,
-                    rate,
-                    code,
-                    tin,
-                    taxpayerName,
-                    address,
-                    employerName,
-                    employerTIN,
-                    contact,
-                    employeeName,
-                    salary,
-                    employeeTIN,
-                    declarationMonth,
-                    totalIncome,
-                    LocalDate.now(),
-                    assessedTax,
-                    LocalDate.now(),
-                    paymentAmount,
-                    receiptNo,
-                    assessedTax
+                    id, LocalDate.now(), LocalDate.now(),
+                    authorityName, region, email,
+                    categoryName, rate, code,
+                    tin, taxpayerName, address,
+                    employerName, employerTIN, contact,
+                    employeeName, salary, employeeTIN,
+                    declarationMonth, totalIncome,
+                    LocalDate.now(), assessedTax,
+                    LocalDate.now(), paymentAmount,
+                    receiptNo, assessedTax
             );
 
-            System.out.println("\n=== COMPUTED TAX RECORD ===");
-            record.computeTax();
+            String computedResult = record.computeTax();
+            String finalOutput = "27135:" + computedResult;
+
+            System.out.println("\n=== COMPUTED TAX RECORD (Student ID: 27135) ===");
+            System.out.println(finalOutput);
 
         } catch (Exception e) {
-            System.out.println("\nError 27135: " + e.getMessage());
+            System.out.println("27135:Error - " + e.getMessage());
+        } finally {
+            sc.close();
         }
 
-        sc.close();
+        System.out.println("\n>>> END OF EXECUTION [StudentID:27135] <<<");
     }
 }

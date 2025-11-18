@@ -1,15 +1,14 @@
-package q5;
+package _27135.q5;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-        try {
-            System.out.println("=== 27135 - ATTENDANCE SUMMARY INPUT SYSTEM ===\n");
+        System.out.println("=== 27135 - ATTENDANCE SUMMARY INPUT SYSTEM ===\n");
 
+        try {
             System.out.print("Enter ID (>0): ");
             int id = sc.nextInt();
             sc.nextLine();
@@ -89,45 +88,31 @@ public class Main {
             int totalAbsent = sc.nextInt();
             sc.nextLine();
 
-
             AttendanceSummary summary = new AttendanceSummary(
-                    id,
+                    id, LocalDate.now(), LocalDate.now(),
+                    institutionName, code, address,
+                    departmentName, departmentHead,
+                    courseName, courseCode, credits,
+                    instructorName, email, phone,
+                    studentName, studentID, age,
+                    sessionDate, topic,
+                    recordStudentID, sessionID, status,
+                    requestDate, reason, approved,
                     LocalDate.now(),
-                    LocalDate.now(),
-                    institutionName,
-                    code,
-                    address,
-                    departmentName,
-                    departmentHead,
-                    courseName,
-                    courseCode,
-                    credits,
-                    instructorName,
-                    email,
-                    phone,
-                    studentName,
-                    studentID,
-                    age,
-                    sessionDate,
-                    topic,
-                    recordStudentID,
-                    sessionID,
-                    status,
-                    requestDate,
-                    reason,
-                    approved,
-                    LocalDate.now(),
-                    totalPresent,
-                    totalAbsent
+                    totalPresent, totalAbsent
             );
 
-            System.out.println("\n=== GENERATING SUMMARY ===");
-            summary.generateSummary();
+            String result = summary.generateSummary();
+            String finalOutput = "27135:" + result;
+            System.out.println("\n=== ATTENDANCE SUMMARY OUTPUT ===");
+            System.out.println(finalOutput);
 
         } catch (Exception e) {
-            System.out.println("\nError 27135: " + e.getMessage());
+            System.out.println("27135:Error - " + e.getMessage());
+        } finally {
+            sc.close();
         }
 
-        sc.close();
+        System.out.println("\n>>> END OF EXECUTION [StudentID:27135] <<<");
     }
 }

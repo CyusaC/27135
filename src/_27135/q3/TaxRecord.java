@@ -1,4 +1,4 @@
-package q3;
+package _27135.q3;
 import java.time.LocalDate;
 
 public final class TaxRecord extends Payment {
@@ -22,7 +22,7 @@ public final class TaxRecord extends Payment {
         this.totalTax = totalTax;
     }
 
-    public void computeTax() {
+    public String computeTax() {
         double credits = 30000; // Tax credits
         double computedTax = (getSalary() * getRate()) - credits;
 
@@ -39,5 +39,6 @@ public final class TaxRecord extends Payment {
         System.out.println("Total Tax Paid: 27135-" + totalTax);
         System.out.println("Month: 27135-" + getDeclarationMonth());
         System.out.println("=".repeat(50));
+        return null;
     }
 }

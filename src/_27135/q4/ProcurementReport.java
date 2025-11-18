@@ -1,4 +1,4 @@
-package q4;
+package _27135.q4;
 import java.time.LocalDate;
 
 public final class ProcurementReport extends Invoice {
@@ -22,7 +22,7 @@ public final class ProcurementReport extends Invoice {
         this.summary = summary;
     }
 
-    public void calculateTotal() {
+    public String calculateTotal() {
         double calculatedTotal = getUnitPrice() * getQuantity();
 
         System.out.println("\n27135 - PROCUREMENT REPORT");
@@ -42,5 +42,6 @@ public final class ProcurementReport extends Invoice {
         System.out.println("Summary: 27135-" + summary);
         System.out.println("Report Date: 27135-" + reportDate);
         System.out.println("=".repeat(50));
+        return null;
     }
 }

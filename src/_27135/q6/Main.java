@@ -1,17 +1,14 @@
-package q6;
+package _27135.q6;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
+        System.out.println("=== 27135 PAYSLIP GENERATOR ===\n");
+
         try {
-
-            System.out.println("=== 27135 PAYSLIP GENERATOR ===\n");
-
-
             System.out.print("Enter ID (>0): ");
             int id = sc.nextInt();
             sc.nextLine();
@@ -28,7 +25,6 @@ public class Main {
             System.out.print("Organization Email: ");
             String email = sc.nextLine();
 
-
             System.out.print("Department Name: ");
             String deptName = sc.nextLine();
 
@@ -37,7 +33,6 @@ public class Main {
 
             System.out.print("Manager Name: ");
             String managerName = sc.nextLine();
-
 
             System.out.print("Employee ID (>=1000): ");
             int empID = sc.nextInt();
@@ -77,9 +72,8 @@ public class Main {
             System.out.print("Housing Allowance: ");
             double housing = sc.nextDouble();
 
-
             double expectedRssb = basicPay * 0.05;
-            System.out.println("\n* RSSB auto-check: 5% of Basic Pay = " + expectedRssb);
+            System.out.println("* RSSB auto-check: 5% of Basic Pay = " + expectedRssb);
 
             System.out.print("RSSB Contribution (must equal 5% Basic Pay): ");
             double rssbContr = sc.nextDouble();
@@ -99,7 +93,6 @@ public class Main {
             System.out.print("Bonus: ");
             double bonus = sc.nextDouble();
 
-
             System.out.print("Gross Salary: ");
             double gross = sc.nextDouble();
 
@@ -110,13 +103,11 @@ public class Main {
             double netSalary = sc.nextDouble();
             sc.nextLine();
 
-
             System.out.print("Payslip Number: ");
             String payslipNumber = sc.nextLine();
 
             System.out.print("Issue Date (YYYY-MM-DD): ");
             LocalDate issueDate = LocalDate.parse(sc.nextLine());
-
 
             Payslip payslip = new Payslip(
                     id, LocalDate.now(), LocalDate.now(),
@@ -131,14 +122,17 @@ public class Main {
                     payslipNumber, issueDate
             );
 
-
-            System.out.println("\n=== GENERATING PAYSLIP ===");
-            payslip.generatePayslip();
+            String result = payslip.generatePayslip();
+            String finalOutput = "27135:" + result;
+            System.out.println("\n=== PAYSLIP OUTPUT ===");
+            System.out.println(finalOutput);
 
         } catch (Exception e) {
-            System.out.println("\nERROR 27135: " + e.getMessage());
+            System.out.println("27135:Error - " + e.getMessage());
+        } finally {
+            sc.close();
         }
 
-        sc.close();
+        System.out.println("\n>>> END OF EXECUTION [StudentID:27135] <<<");
     }
 }

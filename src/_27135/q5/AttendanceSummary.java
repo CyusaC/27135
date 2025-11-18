@@ -1,4 +1,4 @@
-package q5;
+package _27135.q5;
 import java.time.LocalDate;
 
 public final class AttendanceSummary extends LeaveRequest {
@@ -24,7 +24,7 @@ public final class AttendanceSummary extends LeaveRequest {
         this.totalAbsent = totalAbsent;
     }
 
-    public void generateSummary() {
+    public String generateSummary() {
         int totalSessions = totalPresent + totalAbsent;
         double attendancePercentage = totalSessions > 0 ? (totalPresent * 100.0) / totalSessions : 0;
 
@@ -42,5 +42,6 @@ public final class AttendanceSummary extends LeaveRequest {
         System.out.println("Attendance %: 27135-" + String.format("%.2f", attendancePercentage) + "%");
         System.out.println("Report Date: 27135-" + reportDate);
         System.out.println("=".repeat(50));
+        return null;
     }
 }

@@ -1,4 +1,4 @@
-package q6;
+package _27135.q6;
 import java.time.LocalDate;
 
 public final class Payslip extends Payroll {
@@ -23,7 +23,7 @@ public final class Payslip extends Payroll {
         this.issueDate = issueDate;
     }
 
-    public void generatePayslip() {
+    public String generatePayslip() {
         double overtimePay = getOvertimeHours() * getOvertimeRate();
         double calculatedGross = getBasicPay() + getTransportAllowance() + getHousingAllowance() + overtimePay + getBonus();
         double calculatedDeductions = getRssbContribution() + getPayeTax() + getLoanDeduction();
@@ -61,5 +61,6 @@ public final class Payslip extends Payroll {
         System.out.println("NET SALARY: 27135-" + calculatedNet);
         System.out.println("Issue Date: 27135-" + issueDate);
         System.out.println("=".repeat(60));
+        return null;
     }
 }

@@ -1,16 +1,14 @@
-package q4;
+package _27135.q4;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
+        System.out.println("=== 27135 PROCUREMENT REPORT INPUT SYSTEM ===\n");
 
         try {
-            System.out.println("=== 27135 PROCUREMENT REPORT INPUT SYSTEM ===\n");
-
             System.out.print("Enter ID (>0): ");
             int id = sc.nextInt();
             sc.nextLine();
@@ -74,44 +72,31 @@ public class Main {
             System.out.print("Report Summary: ");
             String summary = sc.nextLine();
 
-
-
             ProcurementReport report = new ProcurementReport(
-                    id,
-                    LocalDate.now(),
-                    LocalDate.now(),
-                    orgName,
-                    address,
-                    email,
-                    deptName,
-                    deptCode,
-                    supplierName,
-                    supplierTIN,
-                    contact,
-                    productName,
-                    unitPrice,
-                    quantity,
-                    poNumber,
-                    LocalDate.now(),
+                    id, LocalDate.now(), LocalDate.now(),
+                    orgName, address, email,
+                    deptName, deptCode,
+                    supplierName, supplierTIN, contact,
+                    productName, unitPrice, quantity,
+                    poNumber, LocalDate.now(),
                     unitPrice * quantity,
                     LocalDate.now(),
-                    deliveredBy,
-                    inspectorName,
-                    status,
-                    remarks,
-                    invoiceNo,
-                    invoiceAmount,
-                    LocalDate.now(),
+                    deliveredBy, inspectorName, status, remarks,
+                    invoiceNo, invoiceAmount, LocalDate.now(),
                     summary
             );
 
-            System.out.println("\n=== GENERATING PROCUREMENT REPORT ===");
-            report.calculateTotal();
+            String result = report.calculateTotal();
+            String finalOutput = "27135:" + result;
+            System.out.println("\n=== PROCUREMENT REPORT OUTPUT ===");
+            System.out.println(finalOutput);
 
         } catch (Exception e) {
-            System.out.println("\nError 27135: " + e.getMessage());
+            System.out.println("27135:Error - " + e.getMessage());
+        } finally {
+            sc.close();
         }
 
-        sc.close();
+        System.out.println("\n>>> END OF EXECUTION [StudentID:27135] <<<");
     }
 }
